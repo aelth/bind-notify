@@ -1,0 +1,4 @@
+Generate using: 
+    telegram-send --configure
+    OR
+    telegram-send --configure-group

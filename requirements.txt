@@ -1,0 +1,14 @@
+appdirs
+certifi
+cffi
+colorama
+cryptography
+decorator
+future
+pkg-resources
+pycparser
+pygtail
+python-telegram-bot
+six
+telegram-send
+tornado

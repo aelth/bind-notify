@@ -1,0 +1,24 @@
+[General]
+# define log files that are being monitored
+# IMPORTANT: for each log file monitored, there must be corresponding Log-<name> section!
+logs = security,zone_transfers
+
+# number of seconds to sleep between the subsequent log reads
+sleep = 10
+
+[Log-security]
+# full path to Bind security.log file
+log = /var/log/named/security.log
+
+# line regex for notifications
+rex = client\s+@\w+\s+((?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)).*?zone transfer\s+'(.*?)' denied
+
+[Log-zone_transfers]
+# full path to Bind zone_transfers.log file
+log = /var/log/named/zone_transfers.log
+
+# line regex for notifications
+rex = client\s+@\w+\s+((?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)).*?bad zone transfer request:\s+'(.*?)':\s+non-authoritative zone
+
+[Telegram]
+conf = ./telegram.conf

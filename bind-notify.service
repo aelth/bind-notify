@@ -1,0 +1,14 @@
+[Unit]
+Description=BIND Telegram notification daemon
+After=network.target
+
+[Service]
+WorkingDirectory=/srv/bind-notify
+ExecStart=/srv/bind-notify/env/bin/python bind-notify.py
+User=named
+Group=named
+Restart=always
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
